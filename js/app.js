@@ -1,13 +1,15 @@
 let posts = [];
 
-const likedPostsId = [];
+/* 6th issue */ let likedPostsId = [];
 /* 5th problem */ let reportedPostsId = [];
 
 const getLikedPosts = () => {
+  document.getElementById('liked').innerHTML = '';
   return posts.filter((post) => likedPostsId.includes(post.id));
 };
 
 const getReportedPosts = () => {
+  document.getElementById('reported').innerHTML = '';
   return posts.filter((post) => reportedPostsId.includes(post.id));
 };
 
@@ -22,7 +24,6 @@ const addToLiked = (id) => {
 };
 
 const reportPost = (id) => {
-  console.log(id);
   reportedPostsId.push(id);
   const remainingPosts = posts.filter(
     (post) => !reportedPostsId.includes(post.id)
@@ -154,23 +155,25 @@ const showPosts = (posts) => {
   });
 };
 
+/* 6th issue  */
 const displayLikedPosts = () => {
   const likedPosts = getLikedPosts();
+
   likedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById('liked').appendChild(div);
   });
+  /* 6th issue */
+  /* likedPostsId = []; */
 };
 
 const displayReportedPosts = () => {
   const reportedPosts = getReportedPosts();
-  console.log(reportedPosts);
-
   /* 5th problem */ reportedPosts.forEach((post) => {
     const div = createPost(post);
     document.getElementById('reported').appendChild(div);
-  });
-  /* 5th problem */ reportedPostsId = [];
+  }); /* reportedPostsId = []; */
+  /* 5th problem */
 };
 
 const loadPosts = async () => {
