@@ -31,7 +31,7 @@ const reportPost = (id) => {
 
 const displayContent = (text) => {
   return text.length < 30
-    ? 'text'
+    ? /* 3rd issue */ text
     : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
